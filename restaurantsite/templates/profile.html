@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.username }}'s Profile | Foodie's Paradise</title>
+    <meta name="description" content="Welcome to Foodie's Paradise! Explore our menu and enjoy unforgettable dining experiences.">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/site-logo.png' %}" alt="Restaurant LOGO" style="width: 200px; height: 50px;">
+    </header>
+    <main>
+        
+        <div class="profile-container" style="text-align:center;"><br><br>
+            <h2>{{ user.username }}'s Profile</h2>
+            <p>Hi <b>Mr. {{ user.username }}</b>, Welcome to Foodie's Paradise!<br><br>
+            We’re delighted to have you here! At Foodie's Paradise, we believe in creating unforgettable dining experiences filled with delicious food and warm hospitality. Explore our menu, discover our unique offerings, and make a reservation to join us for a memorable meal.
+            Thank you for choosing us—we can’t wait to serve you!</p>
+            <a href="{% url 'menu' %}">Click To View Menu</a>
+        </div>
+    </main>
+    <footer class="restaurant-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h4>About Us</h4>
+                <p>Welcome to Foodie's Paradise! Since 1990, we’ve been dedicated to creating unforgettable dining experiences with a focus on fresh, locally sourced ingredients. Our warm atmosphere and friendly staff ensure that every visit feels special. Whether you're celebrating a milestone or enjoying a casual meal, we invite you to relax and savor every moment with us!</p>
+            </div>
+        </div>
+        <div class="social-media">
+            <h4>Follow Us</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Foodie's Paradise. All Rights Reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

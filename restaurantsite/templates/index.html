@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant website</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{% static 'images/site-logo.png' %}" alt="Restaurant LOGO" style="width: 200px; height: 50px;">
+            <nav class="navbar">
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="{% url 'menu' %}">MENU</a>
+                <a href="#contact">CONTACT</a>
+                <a href="#about">About</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}">Profile</a>
+                    <form action="{% url 'logout' %}" method="post" >
+                        {% csrf_token %}
+                        <button type="submit" class="button" >Log Out</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                {% endif %}
+            </nav>
+            
+        </div>
+        <div class="header-img">
+            <p> Welcome to the Foodie's Paradise<br>
+            Join us for a culinary journey filled with authentic flavors and warm hospitality!<br>
+            Enjoy our seasonal specials and signature dishes crafted just for you.<br>
+            Visit us at our Restaurant or reserve your table now!</p>
+        </div>
+    </header>
+    <main>
+        <div class="container1" id="about">
+            <div>
+                <h1>Namma Ooru <br><img src="{% static 'images/site-logo.png' %}" alt="Restaurant LOGO" style="width: 200px; height: 50px;"></h1>
+                <p>Welcome to Foodie's Paradise, a premier vegetarian hang-out spot in different cities in Tamil Nadu, offering a wide range of delicious and authentic South Indian cuisine that is quick, fresh, and satisfying. We are committed to consistently delivering high-quality dishes, and accompaniments including the perfect cup of sambar every single time. We are now located at over 10 locations in Tamilnadu.</p>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="ourmenu">
+                <h1>OUR MENU!</h1>
+                <p>At Foodie's Paradise, we are proud to offer a wide range of mouth-watering dishes, from the famous South Indian idli sambar to
+                    indulgent faloodas and crispy vadais to delicious ghee roasts. Don't wait any longer to try these yummy treats - come visit us today!</p>
+                <a href="{% url 'menu' %}">Click To View Menu</a>
+                <div id="menu-box">
+                    <div class="h2tag">
+                        <h2>&lt;&lt;&lt;&lt;&lt;Vegetarian Dishes&gt;&gt;&gt;&gt;&gt;</h2>
+                        <div class="menu-slider">
+                            <div class="food-item">
+                                <img src="{% static 'images/full_meals.webp' %}" alt="A plate of Chickpea Curry served with rice"><br>
+                                <h3>Traditonal Meals</h3><br>
+                                <h3>Price: Rs.50</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/vegetable_biryani.jfif' %}" alt="A plate of Chickpea Curry served with rice"><br>
+                                <h3>Vegetable Biryani</h3><br>
+                                <h3>Price: ₹100</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/veg-chettinad-recipe.jpg' %}" alt="A plate of Chickpea Curry served with rice"><br>
+                                <h3>Chettinad Vegetable</h3><br>
+                                <h3>Price: ₹70</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/malli-masala-dosa.webp' %}" alt="A plate of Chickpea Curry served with rice"><br>
+                                <h3>Malli Dosa</h3><br>
+                                <h3>Price: ₹40</h3><br>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="h2tag">
+                        <h2>&lt;&lt;&lt;&lt;&lt;Non-Vegetarian Dishes&gt;&gt;&gt;&gt;&gt;</h2>
+                        <div class="menu-slider">
+                            <div class="food-item">
+                                <img src="{% static 'images/Mutton-Biryani.jpg' %}" alt="Mutton Biryani"><br>
+                                <h3>Mutton Biryani</h3><br>
+                                <h3>Price: ₹150</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/Fish-Curry.jpg' %}" alt="A plate of Chickpea Curry served with rice"><br>
+                                <h3>Fish Curry</h3><br>
+                                <h3>Price: ₹80</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/Prawn-masala.png' %}" alt="A plate of Chickpea Curry served with rice"><br>
+                                <h3>Prawn Masala</h3><br>
+                                <h3>Price: ₹120</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/mutton_chuka.jpg' %}" alt="A plate of Chickpea Curry served with rice"><br>
+                                <h3>Mutton Chukka</h3><br>
+                                <h3>Price: ₹100</h3><br>
+                            </div>
+                        </div>  
+                    </div>
+                    <hr>                    
+                    <div class="h2tag">
+                        <h2>&lt;&lt;&lt;&lt;&lt;Foodie's Paradise Specials&gt;&gt;&gt;&gt;&gt;</h2>
+                        <span>A light lunch or a quick tiffin, a birthday celebration or a baby shower,
+                        an office event or a family gathering - we've got you covered!</span>
+                        <div class="menu-slider">
+                            <div class="food-item">
+                                <img src="{% static 'images/chocolate_ice.jfif' %}" alt="A refreshing drink of Aam Panna"><br>
+                                <h3>Chocolate Ice Cream</h3><br>
+                                <h3>Price: ₹50 - ₹70</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/badam-shake.jpg' %}" alt="A glass of Badam Milk"><br>
+                                <h3>Badam Milk</h3><br>
+                                <h3>Price: ₹50 - ₹90</h3><br>
+                            </div>  
+                            <div class="food-item">
+                                <img src="{% static 'images/Peanut-Butter.webp' %}" alt="A creamy Peanut Milkshake"><br>
+                                <h3>Peanut Milkshake</h3><br>
+                                <h3>Price: ₹50 - ₹90</h3><br>
+                            </div>
+                            <div class="food-item">
+                                <img src="{% static 'images/buttermilk.jpg' %}" alt="A plate of Buttermilk"><br>
+                                <h3>Buttermilk (Chaach)</h3><br>
+                                <h3>Price: ₹20 - ₹40</h3><br>
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <hr>
+    <div class="container3">
+        <h1>An Authentic Restaurant With</h1>
+        <div class="authentic-head">
+            <div class="authentic">
+                <img src="{% static 'images/unlimit.jpg' %}" alt="Plate showcasing a variety of dishes" width="100" height="100">
+                <p>Unlimited Variety</p>    
+            </div>            
+            <div class="authentic">
+                <img src="{% static 'images/hygiene.webp' %}" alt="Clean kitchen with hygienic practices" width="100" height="100">
+                <p>Hygienic & Healthy Cooking</p>    
+            </div>            
+            <div class="authentic">
+                <img src="{% static 'images/freshingredients.jpg' %}" alt="Fresh ingredients prepared for cooking" width="100" height="100">
+                <p>Fresh Ingredients</p>    
+            </div>            
+            <div class="authentic">
+                <img src="{% static 'images/dinning.jpg' %}" alt="Elegant dining setup" width="100" height="100">
+                <p>Ultimate Dining Experience</p>    
+            </div>            
+            <div class="authentic">
+                <img src="{% static 'images/rootflavour.jpg' %}" alt="Dish showcasing rich and rooted flavors" width="100" height="100">
+                <p>Rooted Flavours</p>    
+            </div>
+            
+        </div>
+    </div>
+    <div class="container4" id="contact">
+        <h1>Welcome to Our Website!</h1>
+        <h2>GET IN TOUCH</h2>
+        <div class="contact-design">
+            <div class="contact-us">
+                <h3>&gt;&gt;&gt;&gt;&gt;Contact Us&lt;&lt;&lt;&lt;&lt;</h3><br>
+                <b>Email us at: Support@foodieparadise.com</b><br><br>
+                <b>Join Us (HR): vicky.dev@fprfoods.com<br>
+                    or<br>
+                    call Us: +91 1234567890<br><br>
+                    Registered Address:<br>
+                    FPR FOODS PVT LTD.,<br>
+                    31, MGR Nagar,<br>
+                    150 Feet, Navalur Bypass Road,<br>
+                    Chennai, Tamil Nadu 600032<br>
+                </b>
+            </div>
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact_form">
+                {% csrf_token %}
+                <input type="hidden" name="access_key" value="0bc9fbb4-5958-46a5-8070-0fd926474090">
+                <h3>To share your experience, queries, or concerns kindly submit the form below</h3>
+                <div class="formdiv">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="formdiv">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="formdiv">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <button type="submit" class="contact-btn" >Send</button>
+            </form>    
+        </div>
+    </main>
+    <footer class="restaurant-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <img src="{% static 'images/site-logo.png' %}" alt="Restaurant LOGO" style="width: 200px; height: 50px;">
+                <h4>About Us</h4>
+                <p>Welcome to Foodie's Paradise! Since (1990), we’ve been dedicated to creating unforgettable dining experiences with a focus on fresh, locally sourced ingredients. Our warm atmosphere and friendly staff ensure that every visit feels special. Whether you're celebrating a milestone or enjoying a casual meal, we invite you to relax and savor every moment with us!</p>
+            </div>
+        </div>
+        <div class="social-media">
+            <h4>Follow Us</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Foodie's Paradise. All Rights Reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+  
+</body>
+</html>

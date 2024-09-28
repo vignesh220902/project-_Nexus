@@ -1,0 +1,194 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Menu Page</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{% static 'images/site-logo.png' %}" alt="Restaurant LOGO" style="width: 200px; height: 50px;">
+                <nav class="navbar">
+                    <a href="{% url 'index' %}">HOME</a>
+                    <a href="{% url 'menu' %}">MENU</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}">Profile</a>
+                        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit">Log Out</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}">Log In</a>
+                        <a href="{% url 'signup' %}">Sign Up</a>
+                    {% endif %}
+                </nav>
+        </div>
+    </header>
+    <div class="menu-container">
+        <div id="menu-box">
+        <div class="h2tag">
+            <h2>Vegetarian Dishes</h2>
+            <div class="menu-slider">
+                <div class="food-item">
+                    <img src="{% static 'images/full_meals.webp' %}" alt="Traditional Meals" style="width: 200px; height: 200px;">
+                    <h3>Traditional Meals</h3>
+                    <h3>Price: ₹50</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/vegetable_biryani.jfif' %}" alt="Vegetable Biryani" style="width: 200px; height: 200px;">
+                    <h3>Vegetable Biryani</h3>
+                    <h3>Price: ₹100</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/veg-chettinad-recipe.jpg' %}" alt="Chettinad Vegetable" style="width: 200px; height: 200px;">
+                    <h3>Chettinad Vegetable</h3>
+                    <h3>Price: ₹70</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/malli-masala-dosa.webp' %}" alt="Malli Dosa" style="width: 200px; height: 200px;">
+                    <h3>Malli Dosa</h3>
+                    <h3>Price: ₹40</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/palakpaneer.jfif' %}" alt="Palak Paneer" style="width: 200px; height: 200px;">
+                    <h3>Palak Paneer</h3>
+                    <h3>Price: ₹80</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/veg-samosa.jfif' %}" alt="Vegetable Samosa" style="width: 200px; height: 200px;">
+                    <h3>Vegetable Samosa</h3>
+                    <h3>Price: ₹30</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/rajma-chawal.jfif' %}" alt="Rajma Chawal" style="width: 200px; height: 200px;">
+                    <h3>Rajma Chawal</h3>
+                    <h3>Price: ₹60</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/veg-korma.jfif' %}" alt="Vegetable Korma" style="width: 200px; height: 200px;">
+                    <h3>Vegetable Korma</h3>
+                    <h3>Price: ₹90</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/veg-pulao.jfif' %}" alt="Vegetable Pulao" style="width: 200px; height: 200px;">
+                    <h3>Vegetable Pulao</h3>
+                    <h3>Price: ₹70</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/mushroom-masala.jpg' %}" alt="Mushroom Masala" style="width: 200px; height: 200px;">
+                    <h3>Mushroom Masala</h3>
+                    <h3>Price: ₹90</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/Paneer-Butter-Masala.jfif' %}" alt="Paneer Butter Masala" style="width: 200px; height: 200px;">
+                    <h3>Paneer Butter Masala</h3>
+                    <h3>Price: ₹120</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/idly.jfif' %}" alt="Idli" style="width: 200px; height: 200px;">
+                    <h3>Idli</h3>
+                    <h3>Price: ₹25</h3>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+        <hr>
+        <div id="menu-box">
+        <div class="h2tag">
+            <h2>Non-Vegetarian Dishes</h2>
+            <div class="menu-slider">
+                <div class="food-item">
+                    <img src="{% static 'images/chicken-curry.jfif' %}" alt="Chicken Curry" style="width: 200px; height: 200px;">
+                    <h3>Chicken Curry</h3>
+                    <h3>Price: ₹150</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/Mutton-Biryani.jpg' %}" alt="Mutton Biryani" style="width: 200px; height: 200px;">
+                    <h3>Mutton Biryani</h3>
+                    <h3>Price: ₹250</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/Fish-Curry.jpg' %}" alt="Fish Curry" style="width: 200px; height: 200px;">
+                    <h3>Fish Curry</h3>
+                    <h3>Price: ₹180</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/Chicken-Tikka.jpg' %}" alt="Chicken Tikka" style="width: 200px; height: 200px;">
+                    <h3>Chicken Tikka</h3>
+                    <h3>Price: ₹200</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/shrim-curr.jpg' %}" alt="Shrimp Curry" style="width: 200px; height: 200px;">
+                    <h3>Shrimp Curry</h3>
+                    <h3>Price: ₹220</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/lamb-karahi.jfif' %}" alt="Lamb Karahi" style="width: 200px; height: 200px;">
+                    <h3>Lamb Karahi</h3>
+                    <h3>Price: ₹250</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/chicken-biryani.jfif' %}" alt="Chicken Biryani" style="width: 200px; height: 200px;">
+                    <h3>Chicken Biryani</h3>
+                    <h3>Price: ₹200</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/beef-biryani.jfif' %}" alt="Beef Biryani" style="width: 200px; height: 200px;">
+                    <h3>Beef Biryani</h3>
+                    <h3>Price: ₹250</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/tandoori-chicken.jfif' %}" alt="Tandoori Chicken" style="width: 200px; height: 200px;">
+                    <h3>Tandoori Chicken</h3>
+                    <h3>Price: ₹210</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/keema.jfif' %}" alt="Keema" style="width: 200px; height: 200px;">
+                    <h3>Keema</h3>
+                    <h3>Price: ₹160</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/chicken-salad.jfif' %}" alt="Chicken Salad" style="width: 200px; height: 200px;">
+                    <h3>Chicken Salad</h3>
+                    <h3>Price: ₹130</h3>
+                </div>
+                <div class="food-item">
+                    <img src="{% static 'images/egg-curry.jfif' %}" alt="Egg Curry" style="width: 200px; height: 200px;">
+                    <h3>Egg Curry</h3>
+                    <h3>Price: ₹90</h3>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="restaurant-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <img src="{% static 'images/site-logo.png' %}" alt="Restaurant LOGO" style="width: 200px; height: 50px;">
+                <h4>About Us</h4>
+                <p>Welcome to Foodie's Paradise! Since (1990), we’ve been dedicated to creating unforgettable dining experiences with a focus on fresh, locally sourced ingredients. Our warm atmosphere and friendly staff ensure that every visit feels special. Whether you're celebrating a milestone or enjoying a casual meal, we invite you to relax and savor every moment with us!</p>
+            </div>
+        </div>
+        <div class="social-media">
+            <h4>Follow Us</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Foodie's Paradise. All Rights Reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
